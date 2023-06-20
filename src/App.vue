@@ -1,15 +1,15 @@
 <script>
-import Component1 from './components/Component1.vue';
+import AppMain from "./components/AppMain.vue";
 import { store } from "./store.js";
 export default {
     name: "App",
     components: {
-      Component1,
+      AppMain,
     },
     data() {
           return {
-             store, 
-          }
+             store,
+          };
       },
     methods:{
         
@@ -17,11 +17,14 @@ export default {
 };
 </script>
 
-
 <template>
-  <!-- placeholder -->
-  <Component1/> 
-  <!-- placeholder -->
+ <Header class="p-5 container text-center">Header </Header>
+
+<Main class="p-5 container text-center">
+    Main
+</Main>
+
+<Footer class="p-5 container text-center">Footer </Footer>
 </template>
 
 
