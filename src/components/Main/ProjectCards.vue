@@ -71,6 +71,17 @@ export default {
             </div>
         </div>
     </div>
+    
+     <div class="d-flex justify-content-center">
+        <button class="btn btn-primary" :disabled="currentPage === 1" @click="setPage(currentPage - 1)">
+            Prev
+        </button>
+        <button class="btn btn-light" v-for="number in lastPage" @click="setPage(number)">
+            {{ number }}
+        </button>
+        <button class="btn btn-outline-light" @click="setPage(lastPage)">last page</button>
+        <button class="btn btn-primary" :disabled="currentPage === lastPage" @click="setPage(currentPage + 1)">Next</button>
+    </div>
 </template>
 
 <style lang="scss" scoped>
