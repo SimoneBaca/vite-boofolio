@@ -1,6 +1,6 @@
 <script>
 import { store } from "../store.js";
-import ProjectCards from "./Main/ProjectCards.vue";
+import ProjectCards from "./Main/PostsCards.vue";
 import axios from "axios";
 export default {
     name: "AppMain",
