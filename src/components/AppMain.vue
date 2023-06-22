@@ -1,32 +1,46 @@
 <script>
-import { store } from "../store.js";
-import ProjectCards from "./Main/PostsCards.vue";
-import axios from "axios";
+import axios from 'axios';
+import PostsCards from './PostsCards.vue';
 export default {
-    name: "AppMain",
+    name: 'Appmain',
     components: {
-        ProjectCards,
+       
+        PostsCards
     },
     data() {
         return {
-            store,
-        };
+            projects: [],
+            base_url: 'http://127.0.0.1:8000/',
+            posts_API: 'api/posts',
+        }
     },
-    methods: {},
-};
+    methods: {
+        getPosts() {
+            axios.get(this.urlAddress, {
+                params: {
+                }
+            })
+                .then((response) => {
+                    this.posts = response.data.result.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+    },
+    created() {
+        this.getPosts();
+    },
+}
 </script>
-
-<template>
-    <div class="row">
-        <div class="col-12">
-            <h1 class="my-4">My projects</h1>
+<template lang="">
+    <section>
+        <div class="container">
+            <div class="row  justify-content-around">
+           <!--     <h1 class="text-center">MyProjects</h1>  -->                  
+           <PostsCards v-for="posts in posts" :project="posts" />
+            </div>
         </div>
-        <ProjectCards />
-    </div>
+    </section>
 </template>
-
-<style lang="scss" scoped>
-// img{
-//     width: 400px;
-// }
-</style>
+<style  lang="scss" scoped></style>

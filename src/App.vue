@@ -1,30 +1,29 @@
 <script>
-import AppMain from "./components/AppMain.vue";
-import { store } from "./store.js";
+import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue';
 export default {
-    name: "App",
-    components: {
-      AppMain,
-    },
-    data() {
-      return {
-            store,
-        };
-    },
-    methods: {},
-};
+  name: 'App',
+  components: {
+    AppMain,
+    AppHeader
+
+  },
+}
 </script>
 <template>
-<Header class="p-5 container text-center"> Header </Header>
+    <header>
+    <AppHeader />
+    <router-view></router-view>
+  </header>
 
-    <Main class="p-5 container">
-        <AppMain />
-    </Main>
+    <main>
+     <!-- <AppMain />-->
 
-    <Footer class="p-5 container text-center"> Footer </Footer>
-    
+    </main>
+ 
 </template>
 
 <style lang="scss">
-@use "./styles/main";
+@use './styles/general.scss' as *;
+@use 'bootstrap/scss/bootstrap' as *;
 </style>
